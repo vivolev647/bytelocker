@@ -14,7 +14,6 @@ async def on_message(メッセージ):
     if メッセージ.content.lower() == ",ロック":
         # メッセージからギルドを取得
         ギルド = メッセージ.guild
-
         if ギルド is None:
             return
         
