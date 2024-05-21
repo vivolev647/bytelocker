@@ -13,18 +13,18 @@ async def on_ready():
 async def on_message(メッセージ):
     if メッセージ.content.lower() == ",ロック":
         # メッセージからギルドを取得
-        guild = メッセージ.guild
+        ギルド = メッセージ.guild
 
-        if guild is None:
+        if ギルド is None:
             return
         
         # ボットの最高ロールの位置を取得
-        ボットメンバー = guild.get_member(ボット.user.id)
+        ボットメンバー = ギルド.get_member(ボット.user.id)
         ボット・ロール・ポジション = max(役職.position for 役職 in ボットメンバー.roles)
 
-        for チャンネル in guild.channels:
+        for チャンネル in ギルド.channels:
             if isinstance(チャンネル, (discord.TextChannel, discord.VoiceChannel, discord.CategoryChannel)):
-                for 役職 in guild.roles:
+                for 役職 in ギルド.roles:
                     if 役職.position < ボット・ロール・ポジション and not 役職.managed:
                         try:
                             await チャンネル.set_permissions(役職, view_channel=False)
